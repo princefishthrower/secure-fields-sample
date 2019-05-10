@@ -56,7 +56,7 @@
     var secureFields = new SecureFields();
 
     secureFields.init(
-      '190510164649321735',
+      '190510172327585731',
       {
         cardNumber: {
            placeholderElementId: 'card-number',
@@ -131,7 +131,7 @@
     secureFields.on('success', function (data) {
       if (data.transactionId) {
         var result = document.getElementById('form-result');
-        result.innerText = 'Data submitted successfully (transactionId: ' + data.transactionId + ')';
+        result.innerText = 'Data submitted successfully (transactionId: ' + data.transactionId + ', redirect: ' + (data.redirect ? data.redirect:'not needed') + ')';
         result.style.display = 'block';
       }
     });
