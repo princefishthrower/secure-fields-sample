@@ -88,7 +88,23 @@ class SecureFields extends Component {
   initSecureFields = () => {
     const { config } = this.props
     this.secureFields = new window.SecureFields()
-    this.secureFields.initTokenize(config.merchantID, config.fields, config.options)
+    // For Datatrans Customers
+    this.secureFields.init("220121094821439567", {
+      cardNumber: {
+        placeholderElementId: "card-number",
+        inputType: "tel",
+        placeholder: "Credit card"
+      },
+      cvv: {
+        placeholderElementId: "cvv-number",
+        inputType: "tel",
+        placeholder: "CVV"
+      }
+    },{
+      focus: 'cardNumber'
+    })
+    // For PCI Proxy Customers
+    // this.secureFields.initTokenize(config.merchantID, config.fields, config.options)
     this.bindSecureFieldsEvents()
   }
 
